@@ -77,7 +77,7 @@ Ensure the file names match the list in the Load Data section of the notebook (e
 ### 4. Running the Notebook
 
 Open spotify_data_mining_project.ipynb.
+Run the cells in sequence.
 
-Run the cells in sequence, starting with the Library Imports and Data Loading cells.
 ---
 *This study was prepared as a final project for a Data Mining course.*
