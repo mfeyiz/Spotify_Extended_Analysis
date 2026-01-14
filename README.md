@@ -1,13 +1,13 @@
-# 🎵 Spotify Extended Data Mining Analysis
+# Spotify Extended Data Mining Analysis
 
 This project is a **Data Mining** study that analyzes personal Spotify listening data (2023-2025) to understand user behavior, artist associations, and future trends.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 The project covers the entire data mining pipeline, starting from processing raw JSON data to applying to machine learning models. The primary goal is to interpret music listening habits through statistical and algorithmic methods.
 advanced
-## 🛠️ Technologies and Libraries
+## Technologies and Libraries
 The project is developed in Python and utilizes the following libraries:
 
 * **Data Manipulation:** `Pandas`, `NumPy`, `JSON`.
@@ -19,7 +19,7 @@ The project is developed in Python and utilizes the following libraries:
 * **Association Rules:** `MLxtend` (Apriori & Association Rules).
 * **Statistics:** `SciPy` (T-Test & Z-Score).
 
-## 📊 Analysis Layers
+## Analysis Layers
 
 ### 1. Data Preprocessing
 * 15 streaming history JSON files were merged into a single dataset.
@@ -32,9 +32,9 @@ The project is developed in Python and utilizes the following libraries:
 
 ### 3. K-Means Clustering
 * Hours of the day were grouped into **3 distinct clusters** based on activity levels:
-    * 🔵 **Low Activity**.
-    * 🟡 **Medium Activity**.
-    * 🔴 **High Activity**.
+    * **Low Activity**.
+    * **Medium Activity**.
+    * **High Activity**.
 * **Model Validation:** Verified using the Elbow method, Silhouette Score, and Davies-Bouldin index.
 
 ### 4. Association Rules (Apriori)
@@ -64,6 +64,7 @@ Install the required Python libraries using pip:
 
 ```bash
 pip install pandas numpy plotly scikit-learn mlxtend scipy
+```bash
 
 ### 3. Data Setup
 
