@@ -64,7 +64,7 @@ Install the required Python libraries using pip:
 
 ```bash
 pip install pandas numpy plotly scikit-learn mlxtend scipy
-```bash
+```
 
 ### 3. Data Setup
 
