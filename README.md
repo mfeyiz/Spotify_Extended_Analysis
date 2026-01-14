@@ -1,86 +1,82 @@
-# Spotify Extended Analysis
+# 🎵 Spotify Extended Data Mining Analysis
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
-![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-green)
-![Plotly](https://img.shields.io/badge/Visualization-Plotly-informational)
+This project is a **Data Mining** study that analyzes personal Spotify listening data (2023-2025) to understand user behavior, artist associations, and future trends.
 
-This project is a comprehensive **Data Mining** study that analyzes listening habits, creates user profiles, and provides future predictions using personal Spotify streaming history data.
+---
 
-The project utilizes machine learning techniques such as **K-Means Clustering**, **Apriori Algorithm** (Association Rules), and **Random Forest Regression**.
+## 📌 Project Overview
+The project covers the entire data mining pipeline, starting from processing raw JSON data to applying to machine learning models. The primary goal is to interpret music listening habits through statistical and algorithmic methods.
+advanced
+## 🛠️ Technologies and Libraries
+The project is developed in Python and utilizes the following libraries:
 
-## Features and Techniques Used
+* **Data Manipulation:** `Pandas`, `NumPy`, `JSON`.
+* **Visualization:** `Plotly`.
+* **Machine Learning (Scikit-Learn):**
+    * `KMeans` (Clustering).
+    * `RandomForestRegressor` (Forecasting).
+    * `StandardScaler` (Data Normalization).
+* **Association Rules:** `MLxtend` (Apriori & Association Rules).
+* **Statistics:** `SciPy` (T-Test & Z-Score).
 
-This notebook (.ipynb) file includes the following analysis steps:
+## 📊 Analysis Layers
 
 ### 1. Data Preprocessing
-* Merging multiple JSON files containing streaming history.
-* Timestamp conversions and data cleaning.
-* Filtering for tracks played for at least **30 seconds** to ensure meaningful listens.
+* 15 streaming history JSON files were merged into a single dataset.
+* **Filtering:** Tracks played for less than 30 seconds were excluded to remove accidental skips.
+* **Feature Engineering:** Derived hour, day name, weekday/weekend status, and listening duration in hours from timestamps.
 
 ### 2. Exploratory Data Analysis (EDA)
-* Basic statistics for most played tracks and artists.
-* **Weekly Activity Heatmap:** Visualizing listening patterns by day of week and hour.
-* **Trend Analysis:** Identifying "Forgotten Artists" (previously popular) and "Rising Artists" (new favorites).
+* **Weekly Heatmap:** Visualized listening density by hour and day of the week.
+* **Trend Analysis:** Identified "Forgotten Artists" (high past play count, low recent count) and "Rising Artists" (new favorites).
 
-### 3. K-Means Clustering Analysis
-* Grouping hours of the day by listening activity patterns.
-* Using the **Elbow Method** to find the optimal number of clusters (k).
+### 3. K-Means Clustering
+* Hours of the day were grouped into **3 distinct clusters** based on activity levels:
+    * 🔵 **Low Activity**.
+    * 🟡 **Medium Activity**.
+    * 🔴 **High Activity**.
+* **Model Validation:** Verified using the Elbow method, Silhouette Score, and Davies-Bouldin index.
 
-### 4. Association Rules Mining (Apriori Algorithm)
-* Discovering which artists are frequently listened to together.
-* Visualizing artist associations using **Lift** and **Confidence** metrics.
+### 4. Association Rules (Apriori)
+* Analyzed co-listening patterns of artists within the same day.
+* Calculated metrics such as **Support**, **Confidence**, and **Lift** to determine the probability of listening to Artist Y given Artist X.
 
-### 5. Statistical Tests and Anomaly Detection
-* **T-Test:** Analyzing statistically significant differences between weekday and weekend listening.
-* **Anomaly Detection:** Using the **Z-Score** method to identify extreme listening days.
+### 5. Anomaly Detection and Statistics
+* **T-Test:** Performed an independent t-test to check for statistically significant differences between weekday and weekend listening habits.
+* **Z-Score:** Identified anomalous days with extreme listening counts using Z-score outliers.
 
-### 6. Time Series Forecasting with Random Forest
-* Training a model on historical data to capture trends and seasonality.
-* Predicting future monthly listening counts for the next **6 months**.
+### 6. Future Forecasting (Random Forest)
+* Predicted listening trends for the next 6 months using time-series analysis.
+* Utilized **Sine/Cosine transformations** for month numbers to capture seasonality within the Random Forest model.
 
-### 7. Generate HTML Report
-* Exporting all visualizations and analysis results into a comprehensive, interactive `Spotify_Data_Mining_Report.html` file.
+## File Structure
+* `spotify_data_mining_project.ipynb`: The main notebook containing all analysis code and visualizations.
+* `Streaming_History_Audio_*.json`: Raw Spotify data files.
 
-## 🛠️ Installation
+## How to run?
+To run this analysis on your local machine, follow these steps:
 
-Follow these steps to run the project on your local machine:
+### 1. Prerequisites
+Ensure you have **Python 3.8+** installed. It is recommended to use a virtual environment or a Jupyter Notebook environment.
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/username/Spotify_Extended_Analysis.git](https://github.com/username/Spotify_Extended_Analysis.git)
-   cd Spotify_Extended_Analysis
-Install required libraries:
+### 2. Install Dependencies
+Install the required Python libraries using pip:
 
-Bash
+```bash
+pip install pandas numpy plotly scikit-learn mlxtend scipy
 
-pip install pandas numpy plotly scikit-learn mlxtend scipy jupyter
-Add Your Data:
+### 3. Data Setup
 
-Request your "Extended streaming history" from your Spotify Privacy Settings.
+Download your Extended Streaming History from your Spotify Account privacy settings.
 
-Place your Streaming_History_Audio_....json files into the project directory.
+Place all Streaming_History_Audio_*.json files in the same directory as the notebook.
 
-Start the Notebook:
+Ensure the file names match the list in the Load Data section of the notebook (e.g., Streaming_History_Audio_2023_0.json to Streaming_History_Audio_2025_14.json).
 
-Bash
+### 4. Running the Notebook
 
-jupyter notebook spotify_data_mining_project.ipynb
-📊 Sample Visuals
-When the project runs, it creates interactive Plotly visualizations:
+Open spotify_data_mining_project.ipynb.
 
-Activity Heatmap: Shows peak listening times throughout the week.
-
-Association Network: Displays artist pairs with high co-listening probability.
-
-Forecast Graph: Shows historical play counts alongside a 6-month forecast.
-
-📂 File Structure
-Plaintext
-
-Spotify_Extended_Analysis/
-├── spotify_data_mining_project.ipynb  # Main project code
-├── Streaming_History_Audio_2023.json  # (Example) Data file
-├── Streaming_History_Audio_2024.json  # (Example) Data file
-├── Spotify_Data_Mining_Report.html    # Generated interactive report
-└── README.md                          # Project documentation
+Run the cells in sequence, starting with the Library Imports and Data Loading cells.
+---
+*This study was prepared as a final project for a Data Mining course.*
